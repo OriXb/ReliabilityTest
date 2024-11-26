@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A49C9CE4-5758-4B0B-8A10-63A9AAF0BAB0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ReliabilityTest</RootNamespace>
+    <AssemblyName>ReliabilityTest</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSetAnswersInTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetAnswersInTest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCharacters.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCharacters.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCharsInForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCharsInForm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCities.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetForms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetForms.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetQuestions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetQuestions.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetQuestionsForChar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetQuestionsForChar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetQuestionsInForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetQuestionsInForm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTests.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTests.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddAnswersInTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddAnswersInTest.Designer.cs">
+      <DependentUpon>FormAddAnswersInTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddCharacters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCharacters.Designer.cs">
+      <DependentUpon>FormAddCharacters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddCharsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCharsInForm.Designer.cs">
+      <DependentUpon>FormAddCharsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddCities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCities.Designer.cs">
+      <DependentUpon>FormAddCities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddForms.Designer.cs">
+      <DependentUpon>FormAddForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddQuestions.Designer.cs">
+      <DependentUpon>FormAddQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddQuestionsForChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddQuestionsForChar.Designer.cs">
+      <DependentUpon>FormAddQuestionsForChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddQuestionsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddQuestionsInForm.Designer.cs">
+      <DependentUpon>FormAddQuestionsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddTests.Designer.cs">
+      <DependentUpon>FormAddTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddUsers.Designer.cs">
+      <DependentUpon>FormAddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartQuestionsByPropertiy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartQuestionsByPropertiy.Designer.cs">
+      <DependentUpon>FormChartQuestionsByPropertiy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartQuestionsByTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartQuestionsByTest.Designer.cs">
+      <DependentUpon>FormChartQuestionsByTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartQuestionsInTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartQuestionsInTestForm.Designer.cs">
+      <DependentUpon>FormChartQuestionsInTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptQuestionsByCharacter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptQuestionsByCharacter.Designer.cs">
+      <DependentUpon>FormRptQuestionsByCharacter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptTest.Designer.cs">
+      <DependentUpon>FormRptTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptTestForm.Designer.cs">
+      <DependentUpon>FormRptTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchAnswersInTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchAnswersInTest.Designer.cs">
+      <DependentUpon>FormSearchAnswersInTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchCharacters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchCharacters.Designer.cs">
+      <DependentUpon>FormSearchCharacters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchCharsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchCharsInForm.Designer.cs">
+      <DependentUpon>FormSearchCharsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchCities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchCities.Designer.cs">
+      <DependentUpon>FormSearchCities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchForms.Designer.cs">
+      <DependentUpon>FormSearchForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchQuestions.Designer.cs">
+      <DependentUpon>FormSearchQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchQuestionsForChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchQuestionsForChar.Designer.cs">
+      <DependentUpon>FormSearchQuestionsForChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchQuestionsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchQuestionsInForm.Designer.cs">
+      <DependentUpon>FormSearchQuestionsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchTests.Designer.cs">
+      <DependentUpon>FormSearchTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchUsers.Designer.cs">
+      <DependentUpon>FormSearchUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblAnswersInTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblAnswersInTest.Designer.cs">
+      <DependentUpon>FormTblAnswersInTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblCharacters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblCharacters.Designer.cs">
+      <DependentUpon>FormTblCharacters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblCharsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblCharsInForm.Designer.cs">
+      <DependentUpon>FormTblCharsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblCities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblCities.Designer.cs">
+      <DependentUpon>FormTblCities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblForms.Designer.cs">
+      <DependentUpon>FormTblForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblQuestions.Designer.cs">
+      <DependentUpon>FormTblQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblQuestionsForChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblQuestionsForChar.Designer.cs">
+      <DependentUpon>FormTblQuestionsForChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblQuestionsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblQuestionsInForm.Designer.cs">
+      <DependentUpon>FormTblQuestionsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblTests.Designer.cs">
+      <DependentUpon>FormTblTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblUsers.Designer.cs">
+      <DependentUpon>FormTblUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestCreate.Designer.cs">
+      <DependentUpon>FormTestCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestExamination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestExamination.Designer.cs">
+      <DependentUpon>FormTestExamination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestExaminationProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestExaminationProcess.Designer.cs">
+      <DependentUpon>FormTestExaminationProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateAnswersInTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateAnswersInTest.Designer.cs">
+      <DependentUpon>FormUpdateAnswersInTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateCharacters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateCharacters.Designer.cs">
+      <DependentUpon>FormUpdateCharacters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateForms.Designer.cs">
+      <DependentUpon>FormUpdateForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateQuestions.Designer.cs">
+      <DependentUpon>FormUpdateQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateQuestionsForChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateQuestionsForChar.Designer.cs">
+      <DependentUpon>FormUpdateQuestionsForChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateQuestionsInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateQuestionsInForm.Designer.cs">
+      <DependentUpon>FormUpdateQuestionsInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateTests.Designer.cs">
+      <DependentUpon>FormUpdateTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateUsers.Designer.cs">
+      <DependentUpon>FormUpdateUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddAnswersInTest.resx">
+      <DependentUpon>FormAddAnswersInTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddCharacters.resx">
+      <DependentUpon>FormAddCharacters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddCharsInForm.resx">
+      <DependentUpon>FormAddCharsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddCities.resx">
+      <DependentUpon>FormAddCities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddForms.resx">
+      <DependentUpon>FormAddForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddQuestions.resx">
+      <DependentUpon>FormAddQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddQuestionsForChar.resx">
+      <DependentUpon>FormAddQuestionsForChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddQuestionsInForm.resx">
+      <DependentUpon>FormAddQuestionsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddTests.resx">
+      <DependentUpon>FormAddTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddUsers.resx">
+      <DependentUpon>FormAddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartQuestionsByPropertiy.resx">
+      <DependentUpon>FormChartQuestionsByPropertiy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartQuestionsByTest.resx">
+      <DependentUpon>FormChartQuestionsByTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartQuestionsInTestForm.resx">
+      <DependentUpon>FormChartQuestionsInTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptQuestionsByCharacter.resx">
+      <DependentUpon>FormRptQuestionsByCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptTest.resx">
+      <DependentUpon>FormRptTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptTestForm.resx">
+      <DependentUpon>FormRptTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchAnswersInTest.resx">
+      <DependentUpon>FormSearchAnswersInTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchCharacters.resx">
+      <DependentUpon>FormSearchCharacters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchCharsInForm.resx">
+      <DependentUpon>FormSearchCharsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchCities.resx">
+      <DependentUpon>FormSearchCities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchForms.resx">
+      <DependentUpon>FormSearchForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchQuestions.resx">
+      <DependentUpon>FormSearchQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchQuestionsForChar.resx">
+      <DependentUpon>FormSearchQuestionsForChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchQuestionsInForm.resx">
+      <DependentUpon>FormSearchQuestionsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchTests.resx">
+      <DependentUpon>FormSearchTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchUsers.resx">
+      <DependentUpon>FormSearchUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblAnswersInTest.resx">
+      <DependentUpon>FormTblAnswersInTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblCharacters.resx">
+      <DependentUpon>FormTblCharacters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblCharsInForm.resx">
+      <DependentUpon>FormTblCharsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblCities.resx">
+      <DependentUpon>FormTblCities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblForms.resx">
+      <DependentUpon>FormTblForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblQuestions.resx">
+      <DependentUpon>FormTblQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblQuestionsForChar.resx">
+      <DependentUpon>FormTblQuestionsForChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblQuestionsInForm.resx">
+      <DependentUpon>FormTblQuestionsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblTests.resx">
+      <DependentUpon>FormTblTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblUsers.resx">
+      <DependentUpon>FormTblUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestCreate.resx">
+      <DependentUpon>FormTestCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestExamination.resx">
+      <DependentUpon>FormTestExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestExaminationProcess.resx">
+      <DependentUpon>FormTestExaminationProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateAnswersInTest.resx">
+      <DependentUpon>FormUpdateAnswersInTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateCharacters.resx">
+      <DependentUpon>FormUpdateCharacters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateForms.resx">
+      <DependentUpon>FormUpdateForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateQuestions.resx">
+      <DependentUpon>FormUpdateQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateQuestionsForChar.resx">
+      <DependentUpon>FormUpdateQuestionsForChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateQuestionsInForm.resx">
+      <DependentUpon>FormUpdateQuestionsInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateTests.resx">
+      <DependentUpon>FormUpdateTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateUsers.resx">
+      <DependentUpon>FormUpdateUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="DataSetAnswersInTest.xsc">
+      <DependentUpon>DataSetAnswersInTest.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetAnswersInTest.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetAnswersInTest.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetAnswersInTest.xss">
+      <DependentUpon>DataSetAnswersInTest.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCharacters.xsc">
+      <DependentUpon>DataSetCharacters.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCharacters.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCharacters.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCharacters.xss">
+      <DependentUpon>DataSetCharacters.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCharsInForm.xsc">
+      <DependentUpon>DataSetCharsInForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCharsInForm.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCharsInForm.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCharsInForm.xss">
+      <DependentUpon>DataSetCharsInForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCities.xsc">
+      <DependentUpon>DataSetCities.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCities.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCities.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCities.xss">
+      <DependentUpon>DataSetCities.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetForms.xsc">
+      <DependentUpon>DataSetForms.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetForms.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetForms.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetForms.xss">
+      <DependentUpon>DataSetForms.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetQuestions.xsc">
+      <DependentUpon>DataSetQuestions.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetQuestions.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetQuestions.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetQuestions.xss">
+      <DependentUpon>DataSetQuestions.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetQuestionsForChar.xsc">
+      <DependentUpon>DataSetQuestionsForChar.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetQuestionsForChar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetQuestionsForChar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetQuestionsForChar.xss">
+      <DependentUpon>DataSetQuestionsForChar.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetQuestionsInForm.xsc">
+      <DependentUpon>DataSetQuestionsInForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetQuestionsInForm.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetQuestionsInForm.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetQuestionsInForm.xss">
+      <DependentUpon>DataSetQuestionsInForm.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTests.xsc">
+      <DependentUpon>DataSetTests.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTests.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTests.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetTests.xss">
+      <DependentUpon>DataSetTests.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsers.xsc">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUsers.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetUsers.xss">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
